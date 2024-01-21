@@ -1,5 +1,6 @@
 package Tests;
 
+import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,20 +9,13 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class BuzzOrangeHRMTest {
-    public WebDriver driver;
+public class BuzzOrangeHRMTest extends ShareData {
 
     @Test
 
     public void buzzMethod(){
 
         //test care permite in sectiunea Buzz publicarea unui mesaj in Buzz Newsfeed
-
-        driver = new ChromeDriver();
-        driver.get("https://opensource-demo.orangehrmlive.com");
-        driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         WebElement usernameOrange = driver.findElement(By.xpath("//input[@name='username']"));
         String usernameOrangevalue = "Admin";
@@ -59,8 +53,6 @@ public class BuzzOrangeHRMTest {
         else{
             System.out.println("FAIL! The posted content is not displayed!");
         }
-        driver.quit();
-
 
     }
 }

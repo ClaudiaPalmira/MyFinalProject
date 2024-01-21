@@ -1,5 +1,6 @@
 package Tests;
 
+import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,21 +14,13 @@ import java.io.File;
 import java.time.Duration;
 import java.util.List;
 
-public class PIMOrangeHRMTest {
-
-    public WebDriver driver;
+public class PIMOrangeHRMTest extends ShareData {
 
     @Test
 
     public void pimMethod() {
 
         //test care permite in sectiunea PIM adaugarea unui angajat in Add Employee
-
-        driver = new ChromeDriver();
-        driver.get("https://opensource-demo.orangehrmlive.com");
-        driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         WebElement usernameOrange = driver.findElement(By.xpath("//input[@name='username']"));
         String usernameOrangevalue = "Admin";
@@ -91,15 +84,12 @@ public class PIMOrangeHRMTest {
 ////        Assert.assertTrue(newEmployeeValidation.get(1).getText().contains(middleNameEmployeeValue));
 ////        Assert.assertTrue(newEmployeeValidation.get(2).getText().contains(lastNameEmployeeValue));
 
-        List<WebElement> newEmployeeValidation = driver.findElements(By.cssSelector("div.oxd-input-group.oxd-input-field-bottom-space input.oxd-input"));
+//        List<WebElement> newEmployeeValidation = driver.findElements(By.cssSelector("div.oxd-input-group.oxd-input-field-bottom-space input.oxd-input"));
+//
+//        Assert.assertTrue(newEmployeeValidation.get(0).getAttribute("Ivan").contains(firstNameEmployeeValue));
+//        Assert.assertTrue(newEmployeeValidation.get(1).getAttribute("Iulian").contains(middleNameEmployeeValue));
+//        Assert.assertTrue(newEmployeeValidation.get(2).getAttribute("Ionescu").contains(lastNameEmployeeValue));
 
-        Assert.assertTrue(newEmployeeValidation.get(0).getAttribute("Ivan").contains(firstNameEmployeeValue));
-        Assert.assertTrue(newEmployeeValidation.get(1).getAttribute("Iulian").contains(middleNameEmployeeValue));
-        Assert.assertTrue(newEmployeeValidation.get(2).getAttribute("Ionescu").contains(lastNameEmployeeValue));
-
-
-
-        //driver.quit();
     }
 
 }

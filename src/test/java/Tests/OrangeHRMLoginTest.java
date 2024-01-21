@@ -1,5 +1,6 @@
 package Tests;
 
+import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,21 +9,13 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class OrangeHRMLoginTest {
-
-    public WebDriver driver;
+public class OrangeHRMLoginTest extends ShareData {
 
     @Test
 
     public void loginMethod(){
 
         //test care permite logarea pe site-ul https://opensource-demo.orangehrmlive.com cu anumite credentiale
-
-        driver = new ChromeDriver();
-        driver.get("https://opensource-demo.orangehrmlive.com");
-        driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         WebElement usernameOrange = driver.findElement(By.xpath("//input[@name='username']"));
         String usernameOrangevalue = "Admin";
@@ -44,8 +37,6 @@ public class OrangeHRMLoginTest {
         else {
             System.out.println("The login was not successful! The dashboard is not visible");
         }
-
-        driver.quit();
 
     }
 }
