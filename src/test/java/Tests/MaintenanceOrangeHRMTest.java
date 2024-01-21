@@ -1,5 +1,6 @@
 package Tests;
 
+import PagesOrange.HomePage;
 import ShareDataOrange.ShareData;
 import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
@@ -25,18 +26,10 @@ public class MaintenanceOrangeHRMTest extends ShareData {
 
         //test care permite in sectiunea Maintenance cautarea unui angajat in Access Records
 
-        WebElement usernameOrange = driver.findElement(By.xpath("//input[@name='username']"));
         String usernameOrangevalue = "Admin";
-        usernameOrange.sendKeys(usernameOrangevalue);
-
-        WebElement passwordOrange = driver.findElement(By.xpath("//input[@name='password']"));
         String passwordOrangevalue = "admin123";
-        passwordOrange.sendKeys(passwordOrangevalue);
-
-        WebElement submitOrange = driver.findElement(By.xpath("//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button' and @type='submit']"));
-        submitOrange.click();
-
-        //Partea de sus trebuie sa o scurtez astfel incat sa apelez metoda de log in fara sa o scriu aici
+        HomePage homePage = new HomePage(driver);
+        homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
 
         WebElement maintenanceOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='Maintenance']"));
         maintenanceOrange.click();
