@@ -1,14 +1,11 @@
 package Tests;
 
 import PagesOrange.HomePage;
+import PagesOrange.MaintenanceAdminAccessPage;
+import SidePanelPages.MaintenancePage;
 import ShareDataOrange.ShareData;
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,7 +13,6 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
-import java.util.List;
 
 public class MaintenanceOrangeHRMTest extends ShareData {
 
@@ -31,18 +27,22 @@ public class MaintenanceOrangeHRMTest extends ShareData {
         HomePage homePage = new HomePage(driver);
         homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
 
-        WebElement maintenanceOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='Maintenance']"));
-        maintenanceOrange.click();
+//        WebElement maintenanceOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='Maintenance']"));
+//        maintenanceOrange.click();
 
-        WebElement administratorAccessPass = driver.findElement(By.cssSelector("input[name='password']"));
+        MaintenancePage maintenancePage = new MaintenancePage(driver);
+        maintenancePage.clickMaintenancePage();
+
+//        WebElement administratorAccessPass = driver.findElement(By.cssSelector("input[name='password']"));
+//        String administratorAccessPassValue = "admin123";
+//        administratorAccessPass.sendKeys(administratorAccessPassValue);
+//
+//        WebElement confirmAccess = driver.findElement(By.xpath("//button[@type='submit']"));
+//        confirmAccess.click();
+
+        MaintenanceAdminAccessPage maintenanceAdminAccessPage = new MaintenanceAdminAccessPage(driver);
         String administratorAccessPassValue = "admin123";
-        administratorAccessPass.sendKeys(administratorAccessPassValue);
-
-        WebElement confirmAccess = driver.findElement(By.xpath("//button[@type='submit']"));
-        confirmAccess.click();
-
-        List<WebElement> actualentries = driver.findElements(By.xpath("//div[@class='--name-grouped-field']//div[@class='oxd-input-group oxd-input-field-bottom-space']"));
-        Integer actualtablesize = actualentries.size();
+        maintenanceAdminAccessPage.filladministratorAccess(administratorAccessPassValue);
 
         WebElement accessRecords = driver.findElement(By.xpath("//a[@class='oxd-topbar-body-nav-tab-item']"));
         accessRecords.click();
