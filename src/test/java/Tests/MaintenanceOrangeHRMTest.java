@@ -1,18 +1,14 @@
 package Tests;
 
 import PagesOrange.HomePage;
+import PagesOrange.MaintenanceAccessRecordsPage;
 import PagesOrange.MaintenanceAdminAccessPage;
 import SidePanelPages.MaintenancePage;
 import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.time.Duration;
 
 public class MaintenanceOrangeHRMTest extends ShareData {
 
@@ -24,13 +20,13 @@ public class MaintenanceOrangeHRMTest extends ShareData {
 
         String usernameOrangevalue = "Admin";
         String passwordOrangevalue = "admin123";
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
 
 //        WebElement maintenanceOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='Maintenance']"));
 //        maintenanceOrange.click();
 
-        MaintenancePage maintenancePage = new MaintenancePage(driver);
+        MaintenancePage maintenancePage = new MaintenancePage(getDriver());
         maintenancePage.clickMaintenancePage();
 
 //        WebElement administratorAccessPass = driver.findElement(By.cssSelector("input[name='password']"));
@@ -40,36 +36,40 @@ public class MaintenanceOrangeHRMTest extends ShareData {
 //        WebElement confirmAccess = driver.findElement(By.xpath("//button[@type='submit']"));
 //        confirmAccess.click();
 
-        MaintenanceAdminAccessPage maintenanceAdminAccessPage = new MaintenanceAdminAccessPage(driver);
+        MaintenanceAdminAccessPage maintenanceAdminAccessPage = new MaintenanceAdminAccessPage(getDriver());
         String administratorAccessPassValue = "admin123";
         maintenanceAdminAccessPage.filladministratorAccess(administratorAccessPassValue);
 
-        WebElement accessRecords = driver.findElement(By.xpath("//a[@class='oxd-topbar-body-nav-tab-item']"));
-        accessRecords.click();
-
-        WebElement employeeName = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
-        employeeName.click();
+        MaintenanceAccessRecordsPage maintenanceAccessRecordsPage = new MaintenanceAccessRecordsPage(getDriver());
         String employeeNameValue = "Anthony";
-        employeeName.sendKeys(employeeNameValue);
-        By employeeLocator = By.xpath("//*[contains(text(),'"+employeeNameValue+"')]");
+        maintenanceAccessRecordsPage.fillAccessRecords(employeeNameValue);
 
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(employeeLocator));
+//        WebElement accessRecords = driver.findElement(By.xpath("//a[@class='oxd-topbar-body-nav-tab-item']"));
+//        accessRecords.click();
+//
+//        WebElement employeeName = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
+//        employeeName.click();
+//        String employeeNameValue = "Anthony";
+//        employeeName.sendKeys(employeeNameValue);
+//        By employeeLocator = By.xpath("//*[contains(text(),'"+employeeNameValue+"')]");
+//
+//        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        webDriverWait.until(ExpectedConditions.elementToBeClickable(employeeLocator));
+//
+//        WebElement employeeOptionElement = driver.findElement(employeeLocator);
+//        employeeOptionElement.click();
+//
+//        WebElement searchEmployee = driver.findElement(By.xpath("//button[@type='submit']"));
+//        searchEmployee.click();
 
-        WebElement employeeOptionElement = driver.findElement(employeeLocator);
-        employeeOptionElement.click();
 
-        WebElement searchEmployee = driver.findElement(By.xpath("//button[@type='submit']"));
-        searchEmployee.click();
+        // MAI TREBUIE SA FAC VALIDARILE
 
 
-        // MAI TREBUIE SA FAC VALIDARILE, in cazul in care reusim sa ii gasim solutia
-
-
-        WebElement maintenancePageHeader = driver.findElement(By.xpath("//div[@class='oxd-topbar-header-title']"));
+        WebElement maintenancePageHeader = getDriver().findElement(By.xpath("//div[@class='oxd-topbar-header-title']"));
         Assert.assertTrue(maintenancePageHeader.isDisplayed(), "Maintenance page is not displayed.");
 
-        WebElement selectedEmployeeField = driver.findElement(By.xpath("//div[@class='orangehrm-selected-employee']"));
+        WebElement selectedEmployeeField = getDriver().findElement(By.xpath("//div[@class='orangehrm-selected-employee']"));
         Assert.assertTrue(selectedEmployeeField.isDisplayed(), "Selected employee field is not displayed.");
 
 

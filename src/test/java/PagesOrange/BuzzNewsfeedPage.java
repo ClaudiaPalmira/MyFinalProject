@@ -6,20 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class BuzzNewsfeedPage {
-
-    public WebDriver driver;
+public class BuzzNewsfeedPage extends BasePage {
 
     public BuzzNewsfeedPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     @FindBy(xpath = "//textarea[@class='oxd-buzz-post-input']")
-    WebElement buzzFeed;
+    private WebElement buzzFeed;
 
     @FindBy(xpath = "//button[@type='submit']")
-    WebElement submitBuzz;
+    private WebElement submitBuzz;
 
 
     public void fillBuzzFeed(String buzzValue){

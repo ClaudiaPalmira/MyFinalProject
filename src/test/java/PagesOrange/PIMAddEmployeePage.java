@@ -8,31 +8,32 @@ import org.openqa.selenium.support.PageFactory;
 import java.io.File;
 import java.time.Duration;
 
-public class PIMAddEmployeePage {
-    public WebDriver driver;
+public class PIMAddEmployeePage extends BasePage{
 
     public PIMAddEmployeePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
+
     @FindBy(xpath = "//a[@class='oxd-topbar-body-nav-tab-item' and text()='Add Employee']")
-    public WebElement addEmployee;
+    private WebElement addEmployee;
 
     @FindBy(xpath = "//input[@name='firstName']")
-    public WebElement firstNameEmployee;
+    private WebElement firstNameEmployee;
 
     @FindBy(xpath = "//input[@name='middleName']")
-    public WebElement middleNameEmployee;
+    private WebElement middleNameEmployee;
 
     @FindBy(xpath = "//input[@name='lastName']")
-    public WebElement lastNameEmployee;
+    private WebElement lastNameEmployee;
 
     @FindBy(xpath = "//input[@class='oxd-file-input']")
-    public  WebElement uploadPicture;
+    private  WebElement uploadPicture;
 
     @FindBy(xpath = "//button[@type='submit']")
-    public WebElement saveButton;
+    private WebElement saveButton;
+
+
 
 
     public void fillEmployeeDetails(String firstname, String middlename, String lastname){

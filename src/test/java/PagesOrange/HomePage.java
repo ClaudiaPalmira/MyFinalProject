@@ -1,5 +1,6 @@
 package PagesOrange;
 
+import PagesOrange.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,23 +9,28 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePage {
-
-    public WebDriver driver;
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
+
+//    public WebDriver driver;
+//
+//    public HomePage(WebDriver driver) {
+//        this.driver = driver;
+//        PageFactory.initElements(driver, this);
+//    }
+
     @FindBy (xpath = "//input[@name='username']")
-    public WebElement usernameOrange;
+    private WebElement usernameOrange;
 
     @FindBy(xpath = "//input[@name='password']")
-    public WebElement passwordOrange;
+    private WebElement passwordOrange;
 
     @FindBy(xpath = "//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button' and @type='submit']")
-    public WebElement submitOrange;
+    private WebElement submitOrange;
 
 
     public void fillHomepageOrange(String usernameOrange, String passwordOrange){

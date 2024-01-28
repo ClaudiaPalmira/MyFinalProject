@@ -16,7 +16,7 @@ public class LoginOrangeHRMTest extends ShareData {
 
         String usernameOrangevalue = "Admin";
         String passwordOrangevalue = "admin123";
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
 
 //        WebElement usernameOrange = driver.findElement(By.xpath("//input[@name='username']"));
@@ -32,7 +32,7 @@ public class LoginOrangeHRMTest extends ShareData {
 
         //validam testul de login
 
-        WebElement dashboardHeader = driver.findElement(By.xpath("//div[@class='oxd-topbar-header-title']"));
+        WebElement dashboardHeader = getDriver().findElement(By.xpath("//div[@class='oxd-topbar-header-title']"));
         if (dashboardHeader.isDisplayed()){
             System.out.println("The login was successful! The dashboard is visible");
         }

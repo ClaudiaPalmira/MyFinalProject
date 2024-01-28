@@ -22,16 +22,16 @@ public class PIMOrangeHRMTest extends ShareData {
 
         String usernameOrangevalue = "Admin";
         String passwordOrangevalue = "admin123";
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
 
-        PIMPage pimPage = new PIMPage(driver);
+        PIMPage pimPage = new PIMPage(getDriver());
         pimPage.clickPIMPage();
 
 //        WebElement pimOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='PIM']"));
 //        pimOrange.click();
 
-        PIMAddEmployeePage pimAddEmployeePage = new PIMAddEmployeePage(driver);
+        PIMAddEmployeePage pimAddEmployeePage = new PIMAddEmployeePage(getDriver());
         String firstNameEmployeeValue = "Ivan";
         String middleNameEmployeeValue = "Iulian";
         String lastNameEmployeeValue = "Ionescu";
@@ -64,10 +64,10 @@ public class PIMOrangeHRMTest extends ShareData {
 
         //validam testul de adaugare angajat
 
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait= new WebDriverWait(getDriver(), Duration.ofSeconds(15));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and text()='Employee List']")));
 
-        WebElement employeeList = driver.findElement(By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and text()='Employee List']"));
+        WebElement employeeList = getDriver().findElement(By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and text()='Employee List']"));
         if (employeeList.isDisplayed()) {
             System.out.println("Employee creation successful!");
         } else {

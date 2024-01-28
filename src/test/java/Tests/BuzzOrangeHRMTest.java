@@ -18,10 +18,10 @@ public class BuzzOrangeHRMTest extends ShareData {
 
         String usernameOrangevalue = "Admin";
         String passwordOrangevalue = "admin123";
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
 
-        BuzzPage buzzPage = new BuzzPage(driver);
+        BuzzPage buzzPage = new BuzzPage(getDriver());
         buzzPage.clickBuzzPage();
 
 //      WebElement buzzOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='Buzz']"));
@@ -31,7 +31,7 @@ public class BuzzOrangeHRMTest extends ShareData {
 //         am cautat eroare si nu ma lasa sa atribui text fiindca cautam dupa "div", astfel am cautat un alt approach de identificare a elementului
 
 
-        BuzzNewsfeedPage buzzNewsfeedPage = new BuzzNewsfeedPage(driver);
+        BuzzNewsfeedPage buzzNewsfeedPage = new BuzzNewsfeedPage(getDriver());
         String buzzFeedValue = "Hello world!";
         buzzNewsfeedPage.fillBuzzFeed(buzzFeedValue);
 
@@ -44,7 +44,7 @@ public class BuzzOrangeHRMTest extends ShareData {
 
         //validam testul de buzzfeed
 
-        WebElement postedBuzz = driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p orangehrm-buzz-post-body-text' and text()='Hello world!']"));
+        WebElement postedBuzz = getDriver().findElement(By.xpath("//p[@class='oxd-text oxd-text--p orangehrm-buzz-post-body-text' and text()='Hello world!']"));
         if(postedBuzz.isDisplayed()){
             System.out.println("SUCCESS! The posted content " + buzzFeedValue + " is displayed!");
         }

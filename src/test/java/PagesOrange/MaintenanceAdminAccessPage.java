@@ -6,20 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MaintenanceAdminAccessPage {
-
-    public WebDriver driver;
-
+public class MaintenanceAdminAccessPage extends BasePage {
     public MaintenanceAdminAccessPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     @FindBy(css = "input[name='password']")
-    public WebElement administratorAccessPass;
+    private WebElement administratorAccessPass;
 
     @FindBy(xpath = "//button[@type='submit']")
-    public WebElement confirmAccess;
+    private WebElement confirmAccess;
+
 
     public void filladministratorAccess(String adminNameValue){
         adminName(adminNameValue);
