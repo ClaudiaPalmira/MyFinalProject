@@ -10,6 +10,9 @@ import java.time.Duration;
 public class ShareData {
 
     private WebDriver driver;
+    public WebDriver getDriver() { //se afiseaza driverul dar NU mai permite modificarea driver-ului, l-am facut privat
+        return driver;
+    }
 
     @BeforeMethod
 
@@ -26,7 +29,5 @@ public class ShareData {
         driver.quit();
     }
 
-    public WebDriver getDriver() { //se afiseaza driverul dar NU mai permite modificarea driver-ului, l-am facut privat
-        return driver;
-    }
+
 }

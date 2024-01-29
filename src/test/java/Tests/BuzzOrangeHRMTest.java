@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class BuzzOrangeHRMTest extends ShareData {
 
     @Test
@@ -43,6 +45,9 @@ public class BuzzOrangeHRMTest extends ShareData {
 //        submitBuzz.click();
 
         //validam testul de buzzfeed
+
+        getDriver().navigate().refresh();
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
 
         WebElement postedBuzz = getDriver().findElement(By.xpath("//p[@class='oxd-text oxd-text--p orangehrm-buzz-post-body-text' and text()='Hello world!']"));
         if(postedBuzz.isDisplayed()){
