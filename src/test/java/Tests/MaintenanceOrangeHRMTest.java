@@ -1,6 +1,6 @@
 package Tests;
 
-import PagesOrange.HomePage;
+import PagesOrange.LoginPage;
 import PagesOrange.MaintenanceAccessRecordsPage;
 import PagesOrange.MaintenanceAdminAccessPage;
 import SidePanelPages.MaintenancePage;
@@ -18,10 +18,11 @@ public class MaintenanceOrangeHRMTest extends ShareData {
 
         //test care permite in sectiunea Maintenance cautarea unui angajat in Access Records
 
+
         String usernameOrangevalue = "Admin";
         String passwordOrangevalue = "admin123";
-        HomePage homePage = new HomePage(getDriver());
-        homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.fillLoginpageOrange(usernameOrangevalue,passwordOrangevalue);
 
 //        WebElement maintenanceOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='Maintenance']"));
 //        maintenanceOrange.click();

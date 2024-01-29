@@ -1,6 +1,6 @@
 package Tests;
 
-import PagesOrange.HomePage;
+import PagesOrange.LoginPage;
 import PagesOrange.PIMAddEmployeePage;
 import SidePanelPages.PIMPage;
 import ShareDataOrange.ShareData;
@@ -14,6 +14,7 @@ import java.time.Duration;
 
 public class PIMOrangeHRMTest extends ShareData {
 
+
     @Test
 
     public void pimMethod() {
@@ -22,8 +23,8 @@ public class PIMOrangeHRMTest extends ShareData {
 
         String usernameOrangevalue = "Admin";
         String passwordOrangevalue = "admin123";
-        HomePage homePage = new HomePage(getDriver());
-        homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.fillLoginpageOrange(usernameOrangevalue,passwordOrangevalue);
 
         PIMPage pimPage = new PIMPage(getDriver());
         pimPage.clickPIMPage();

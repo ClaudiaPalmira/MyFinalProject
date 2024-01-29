@@ -1,17 +1,19 @@
 package PagesOrange;
 
-import PagesOrange.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class HomePage extends BasePage {
 
-    public HomePage(WebDriver driver) {
+
+
+
+public class LoginPage extends BasePage {
+
+
+
+    public LoginPage(WebDriver driver) {
         super(driver);
     }
 
@@ -33,7 +35,7 @@ public class HomePage extends BasePage {
     private WebElement submitOrange;
 
 
-    public void fillHomepageOrange(String usernameOrange, String passwordOrange){
+    public void fillLoginpageOrange(String usernameOrange, String passwordOrange){
         fillUsernameOrange(usernameOrange);
         fillPasswordOrange(passwordOrange);
         clickSubmitOrange();

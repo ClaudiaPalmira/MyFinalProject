@@ -2,7 +2,7 @@ package Tests;
 
 import PagesOrange.BuzzNewsfeedPage;
 import SidePanelPages.BuzzPage;
-import PagesOrange.HomePage;
+import PagesOrange.LoginPage;
 import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -18,8 +18,8 @@ public class BuzzOrangeHRMTest extends ShareData {
 
         String usernameOrangevalue = "Admin";
         String passwordOrangevalue = "admin123";
-        HomePage homePage = new HomePage(getDriver());
-        homePage.fillHomepageOrange(usernameOrangevalue,passwordOrangevalue);
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.fillLoginpageOrange(usernameOrangevalue,passwordOrangevalue);
 
         BuzzPage buzzPage = new BuzzPage(getDriver());
         buzzPage.clickBuzzPage();

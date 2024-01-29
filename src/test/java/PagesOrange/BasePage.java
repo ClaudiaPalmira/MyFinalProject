@@ -3,6 +3,7 @@ package PagesOrange;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+
 public class BasePage {
 
      //Aceasta clasa reprezinta clasa de baza(parinte) pentru toate celelate clase care vor mosteni specificatiile ei
