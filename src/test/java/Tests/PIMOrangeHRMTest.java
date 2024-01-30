@@ -1,7 +1,9 @@
 package Tests;
 
+import ObjectData.PIMOrangeHRMObject;
 import PagesOrange.LoginPage;
 import PagesOrange.PIMAddEmployeePage;
+import ShareDataOrange.Hooks;
 import SidePanelPages.PIMPage;
 import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
@@ -12,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class PIMOrangeHRMTest extends ShareData {
+public class PIMOrangeHRMTest extends Hooks {
 
 
     @Test
@@ -26,18 +28,22 @@ public class PIMOrangeHRMTest extends ShareData {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.fillLoginpageOrange(usernameOrangevalue,passwordOrangevalue);
 
+
+
         PIMPage pimPage = new PIMPage(getDriver());
         pimPage.clickPIMPage();
 
-//        WebElement pimOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='PIM']"));
-//        pimOrange.click();
-
-        PIMAddEmployeePage pimAddEmployeePage = new PIMAddEmployeePage(getDriver());
-        String firstNameEmployeeValue = "Ivan";
-        String middleNameEmployeeValue = "Iulian";
-        String lastNameEmployeeValue = "Ionescu";
-        String filepath ="src/test/resources/panda.jpg";
-        pimAddEmployeePage.fillEmployeeDetails(firstNameEmployeeValue, middleNameEmployeeValue, lastNameEmployeeValue);
+        PIMOrangeHRMObject pimOrangeHRMObject = new PIMOrangeHRMObject(testdata);
+//
+////        WebElement pimOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='PIM']"));
+////        pimOrange.click();
+//
+//        PIMAddEmployeePage pimAddEmployeePage = new PIMAddEmployeePage(getDriver());
+//        String firstNameEmployeeValue = "Ivan";
+//        String middleNameEmployeeValue = "Iulian";
+//        String lastNameEmployeeValue = "Ionescu";
+//        String filepath ="src/test/resources/panda.jpg";
+//        pimAddEmployeePage.fillEmployeeDetails(firstNameEmployeeValue, middleNameEmployeeValue, lastNameEmployeeValue);
 
 //        WebElement addEmployee = driver.findElement(By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and text()='Add Employee']"));
 //        addEmployee.click();

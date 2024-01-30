@@ -1,12 +1,13 @@
 package Tests;
 
 import PagesOrange.LoginPage;
+import ShareDataOrange.Hooks;
 import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class LoginOrangeHRMTest extends ShareData {
+public class LoginOrangeHRMTest extends Hooks {
 
     @Test
 

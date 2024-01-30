@@ -14,8 +14,6 @@ public class ShareData {
         return driver;
     }
 
-    @BeforeMethod
-
     public void setUP(){
         driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com");
@@ -23,8 +21,6 @@ public class ShareData {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
-
-    @AfterMethod
     public void clear(){
         driver.quit();
     }

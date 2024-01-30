@@ -3,14 +3,14 @@ package Tests;
 import PagesOrange.LoginPage;
 import PagesOrange.MaintenanceAccessRecordsPage;
 import PagesOrange.MaintenanceAdminAccessPage;
+import ShareDataOrange.Hooks;
 import SidePanelPages.MaintenancePage;
-import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class MaintenanceOrangeHRMTest extends ShareData {
+public class MaintenanceOrangeHRMTest extends Hooks {
 
     @Test
 
@@ -37,9 +37,12 @@ public class MaintenanceOrangeHRMTest extends ShareData {
 //        WebElement confirmAccess = driver.findElement(By.xpath("//button[@type='submit']"));
 //        confirmAccess.click();
 
+
         MaintenanceAdminAccessPage maintenanceAdminAccessPage = new MaintenanceAdminAccessPage(getDriver());
         String administratorAccessPassValue = "admin123";
         maintenanceAdminAccessPage.filladministratorAccess(administratorAccessPassValue);
+
+        //        MaintenanceOrangeHRMObject maintenanceOrangeHRMObject = new MaintenanceOrangeHRMObject(testdata);
 
         MaintenanceAccessRecordsPage maintenanceAccessRecordsPage = new MaintenanceAccessRecordsPage(getDriver());
         String employeeNameValue = "Anthony";
