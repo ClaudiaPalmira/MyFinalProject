@@ -1,5 +1,6 @@
 package SidePanelPages;
 
+import Logger.LoggerUtility;
 import PagesOrange.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,5 +19,6 @@ public class PIMPage extends BasePage {
 
     public void clickPIMPage(){
         pimOrange.click();
+        LoggerUtility.info("The user click on pimOrange page.");
     }
 }

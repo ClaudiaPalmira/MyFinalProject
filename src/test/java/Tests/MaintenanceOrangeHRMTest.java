@@ -42,8 +42,6 @@ public class MaintenanceOrangeHRMTest extends Hooks {
         String administratorAccessPassValue = "admin123";
         maintenanceAdminAccessPage.filladministratorAccess(administratorAccessPassValue);
 
-        //        MaintenanceOrangeHRMObject maintenanceOrangeHRMObject = new MaintenanceOrangeHRMObject(testdata);
-
         MaintenanceAccessRecordsPage maintenanceAccessRecordsPage = new MaintenanceAccessRecordsPage(getDriver());
         String employeeNameValue = "Anthony";
         maintenanceAccessRecordsPage.fillAccessRecords(employeeNameValue);

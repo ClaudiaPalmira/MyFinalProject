@@ -1,5 +1,7 @@
 package PagesOrange;
 
+import Logger.LoggerUtility;
+import ObjectData.BuzzOrangeHRMObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,19 +21,28 @@ public class BuzzNewsfeedPage extends BasePage {
     private WebElement submitBuzz;
 
 
-    public void fillBuzzFeed(String buzzValue){
-        fieldBuzzFeed(buzzValue);
+    public void fillBuzzFeed(BuzzOrangeHRMObject buzzOrangeHRMObject){
+        fieldBuzzFeed(buzzOrangeHRMObject.getBuzzFeedValue());
         submitBuzzfield();
 
     }
 
     public void fieldBuzzFeed(String buzzFeedValue){
-        buzzFeed.click();
-        buzzFeed.sendKeys(buzzFeedValue);
+
+        elementMethods.clickElement(buzzFeed);
+//        buzzFeed.click();
+        LoggerUtility.info("The user clicks on buzzFeed field.");
+
+        elementMethods.fillElement(buzzFeed, buzzFeedValue);
+//        buzzFeed.sendKeys(buzzFeedValue);
+        LoggerUtility.info("The user fills the buzzFeed field.");
     }
 
     public void submitBuzzfield(){
-        submitBuzz.click();
+
+        elementMethods.clickElement(submitBuzz);
+//        submitBuzz.click();
+        LoggerUtility.info("The user clicks on submitBuzz field.");
 
     }
 

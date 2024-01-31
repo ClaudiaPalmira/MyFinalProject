@@ -1,9 +1,12 @@
 package Tests;
 
+import ObjectData.BuzzOrangeHRMObject;
 import ObjectData.PIMOrangeHRMObject;
+import PagesOrange.BuzzNewsfeedPage;
 import PagesOrange.LoginPage;
 import PagesOrange.PIMAddEmployeePage;
 import ShareDataOrange.Hooks;
+import SidePanelPages.BuzzPage;
 import SidePanelPages.PIMPage;
 import ShareDataOrange.ShareData;
 import org.openqa.selenium.By;
@@ -28,13 +31,14 @@ public class PIMOrangeHRMTest extends Hooks {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.fillLoginpageOrange(usernameOrangevalue,passwordOrangevalue);
 
-
+        PIMOrangeHRMObject pimOrangeHRMObject = new PIMOrangeHRMObject(testdata);
 
         PIMPage pimPage = new PIMPage(getDriver());
         pimPage.clickPIMPage();
 
-        PIMOrangeHRMObject pimOrangeHRMObject = new PIMOrangeHRMObject(testdata);
-//
+        PIMAddEmployeePage pimAddEmployeePage = new PIMAddEmployeePage(getDriver());
+        pimAddEmployeePage.fillEmployeeDetails(pimOrangeHRMObject);
+
 ////        WebElement pimOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='PIM']"));
 ////        pimOrange.click();
 //

@@ -1,5 +1,6 @@
 package ShareDataOrange;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -20,9 +21,11 @@ public class ShareData {
         driver.manage().window().maximize();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        LoggerUtility.info("The browser was opened with success!");
     }
     public void clear(){
         driver.quit();
+        LoggerUtility.info("The browser was closed with success!");
     }
 
 

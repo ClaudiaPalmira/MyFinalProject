@@ -1,5 +1,6 @@
 package PagesOrange;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,24 +38,29 @@ public class MaintenanceAccessRecordsPage extends BasePage{
 
     public void clickAccessRecords(){
         accessRecords.click();
+        LoggerUtility.info("The user click on accessRecords field.");
     }
 
     public void clickEmployeeNameField(){
         employeeName.click();
+        LoggerUtility.info("The user click on employeeName field.");
     }
 
     public void enterEmployeeName(String employeeNameValue){
         employeeName.sendKeys(employeeNameValue);
         By employeeLocator = By.xpath("//*[contains(text(),'"+employeeNameValue+"')]");
+        LoggerUtility.info("The user fills on employeeName field.");
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(employeeLocator));
 
         WebElement employeeOptionElement = driver.findElement(employeeLocator);
         employeeOptionElement.click();
+        LoggerUtility.info("The user selects the employee.");
     }
 
     public void clickSearchButton(){
         searchEmployee.click();
+        LoggerUtility.info("The user clicks the searchEmployee field.");
     }
 }

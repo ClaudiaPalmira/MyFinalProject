@@ -1,5 +1,6 @@
 package PagesOrange;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,14 +38,18 @@ public class LoginPage extends BasePage {
     public void fillUsernameOrange(String usernameOrangevalue){
 //        String usernameOrangevalue = "Admin";
         usernameOrange.sendKeys(usernameOrangevalue);
+        LoggerUtility.info("The user fills the usernameOrangevalue field.");
     }
 
     public void fillPasswordOrange(String passwordOrangevalue){
 //        String passwordOrangevalue = "admin123";
         passwordOrange.sendKeys(passwordOrangevalue);
+        LoggerUtility.info("The user fills the passwordOrangevalue field.");
     }
 
     public void clickSubmitOrange(){
         submitOrange.click();
+        LoggerUtility.info("The user clicks the submitOrange button.");
+
     }
 }

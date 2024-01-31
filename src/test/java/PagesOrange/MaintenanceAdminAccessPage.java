@@ -1,5 +1,6 @@
 package PagesOrange;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,10 +27,12 @@ public class MaintenanceAdminAccessPage extends BasePage {
 
     public void adminName(String administratorAccessPassValue){
         administratorAccessPass.sendKeys(administratorAccessPassValue);
+        LoggerUtility.info("The user fills the administratorAccessPass field.");
     }
 
     public void clickConfirmButton(){
         confirmAccess.click();
+        LoggerUtility.info("The user clicks on confirmAccess button.");
     }
 
 }

@@ -26,14 +26,14 @@ public class BuzzOrangeHRMTest extends Hooks {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.fillLoginpageOrange(usernameOrangevalue,passwordOrangevalue);
 
+        BuzzOrangeHRMObject buzzOrangeHRMObject = new BuzzOrangeHRMObject(testdata);
+
         BuzzPage buzzPage = new BuzzPage(getDriver());
         buzzPage.clickBuzzPage();
 
-//        BuzzNewsfeedPage buzzNewsfeedPage = new BuzzNewsfeedPage(getDriver());
-//        String buzzFeedValue = "Hello world!";
-//        buzzNewsfeedPage.fillBuzzFeed(buzzFeedValue);
+        BuzzNewsfeedPage buzzNewsfeedPage = new BuzzNewsfeedPage(getDriver());
+        buzzNewsfeedPage.fillBuzzFeed(buzzOrangeHRMObject);
 
-        BuzzOrangeHRMObject buzzOrangeHRMObject = new BuzzOrangeHRMObject(testdata);
 
         getDriver().navigate().refresh();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(7));

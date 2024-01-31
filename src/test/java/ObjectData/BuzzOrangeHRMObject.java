@@ -1,5 +1,7 @@
 package ObjectData;
 
+import Logger.LoggerUtility;
+
 import java.util.HashMap;
 
 public class BuzzOrangeHRMObject {
@@ -16,7 +18,6 @@ public class BuzzOrangeHRMObject {
 
     public BuzzOrangeHRMObject(HashMap<String, String> testData) {
         populateObject(testData);
-
     }
 
     private void populateObject(HashMap<String, String> testData) {

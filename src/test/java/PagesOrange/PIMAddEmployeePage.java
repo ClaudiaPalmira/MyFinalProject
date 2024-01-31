@@ -1,5 +1,7 @@
 package PagesOrange;
 
+import Logger.LoggerUtility;
+import ObjectData.PIMOrangeHRMObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,11 +38,12 @@ public class PIMAddEmployeePage extends BasePage{
 
 
 
-    public void fillEmployeeDetails(String firstname, String middlename, String lastname){
+    public void fillEmployeeDetails(PIMOrangeHRMObject pimOrangeHRMObject){
+
         clickAddEmployee();
-        fillFirstName(firstname);
-        fillMiddleName(middlename);
-        fillLastName(lastname);
+        fillFirstName(pimOrangeHRMObject.getFirstNameEmployeeValue());
+        fillMiddleName(pimOrangeHRMObject.getMiddleNameEmployeeValue());
+        fillLastName(pimOrangeHRMObject.getLastNameEmployeeValue());
         uploadPhoto("src/test/resources/panda.jpg");
         clickSafeButton();
 
@@ -48,29 +51,44 @@ public class PIMAddEmployeePage extends BasePage{
     }
 
     public void clickAddEmployee(){
-        addEmployee.click();
+
+        elementMethods.clickElement(addEmployee);
+//        addEmployee.click();
+        LoggerUtility.info("The user clicks on addEmployee field.");
     }
 
     public void fillFirstName(String firstNameEmployeeValue){
-        firstNameEmployee.sendKeys(firstNameEmployeeValue);
+
+        elementMethods.fillElement(firstNameEmployee, firstNameEmployeeValue);
+//        firstNameEmployee.sendKeys(firstNameEmployeeValue);
+        LoggerUtility.info("The user fills the firstNameEmployee field.");
     }
 
     public void fillMiddleName(String middleNameEmployeeValue){
-        middleNameEmployee.sendKeys(middleNameEmployeeValue);
+
+        elementMethods.fillElement(middleNameEmployee, middleNameEmployeeValue);
+//        middleNameEmployee.sendKeys(middleNameEmployeeValue);
+        LoggerUtility.info("The user fills the middleNameEmployee field.");
     }
 
     public void fillLastName(String lastNameEmployeeValue){
-        lastNameEmployee.sendKeys(lastNameEmployeeValue);
+
+        elementMethods.fillElement(lastNameEmployee, lastNameEmployeeValue);
+//        lastNameEmployee.sendKeys(lastNameEmployeeValue);
+        LoggerUtility.info("The user fills the lastNameEmployee field.");
     }
 
     public void uploadPhoto(String filepath){
         File file = new File(filepath);
         //File file = new File("src/test/resources/panda.jpg");
         uploadPicture.sendKeys(file.getAbsolutePath());
+        LoggerUtility.info("The user uploads the selected picture.");
     }
 
     public void clickSafeButton(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        saveButton.click();
+        elementMethods.clickElement(saveButton);
+//        saveButton.click();
+        LoggerUtility.info("The user clicks on the saveButton button.");
     }
 }

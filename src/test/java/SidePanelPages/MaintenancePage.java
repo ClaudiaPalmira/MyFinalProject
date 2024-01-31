@@ -1,5 +1,6 @@
 package SidePanelPages;
 
+import Logger.LoggerUtility;
 import PagesOrange.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class MaintenancePage extends BasePage {
 
     public void clickMaintenancePage(){
         maintenanceOrange.click();
+        LoggerUtility.info("The user clicks on maintenanceOrange page.");
     }
 
 }
