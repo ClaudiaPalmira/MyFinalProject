@@ -10,6 +10,10 @@ on:
         description: 'Choose browser for testing from the following: chrome, edge'
         required: true
         default: 'chrome'
+      suite:
+        description: 'Choose suite for testing frm the following: SmokeSuite, SanitySuite, FullRegressionSuite'
+        required: true
+        default: 'SmokeSuite'
 
 jobs:
   build:
@@ -29,7 +33,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build project and run tests
-      run: mvn clean install -Dcicd=true -Dbrowser=${{ github.event.inputs.browser }}
+      run: mvn clean install -Dcicd=true -Dbrowser=${{ github.event.inputs.browser }} -D${suiteXmlFile}.xml=${{ github.event.inputs.suite }} -PCustomSuite
 
     - name: Publish regression logs for OrangeHRM
       if: always()
