@@ -1,6 +1,7 @@
 package ShareDataOrange;
 
 import Logger.LoggerUtility;
+import ShareDataOrange.Browser.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -16,12 +17,15 @@ public class ShareData {
     }
 
     public void setUP(){
-        driver = new ChromeDriver();
-        driver.get("https://opensource-demo.orangehrmlive.com");
-        driver.manage().window().maximize();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        LoggerUtility.info("The browser was opened with success!");
+        driver = new BrowserFactory().getBrowserDriver();
+
+//        driver = new ChromeDriver();
+//        driver.get("https://opensource-demo.orangehrmlive.com");
+//        driver.manage().window().maximize();
+//
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+//        LoggerUtility.info("The browser was opened with success!");
     }
     public void clear(){
         driver.quit();

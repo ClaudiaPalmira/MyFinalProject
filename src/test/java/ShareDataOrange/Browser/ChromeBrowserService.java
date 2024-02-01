@@ -1,9 +1,12 @@
 package ShareDataOrange.Browser;
 
+import Logger.LoggerUtility;
 import PropertyUtility.PropertyUtility;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.time.Duration;
 import java.util.HashMap;
 
 public class ChromeBrowserService extends BaseBrowserService implements BrowserService {
@@ -11,11 +14,20 @@ public class ChromeBrowserService extends BaseBrowserService implements BrowserS
     private WebDriver driver;
     @Override
     public void openBrowser(Boolean cicd) {
+        ChromeOptions chromeOptions = (ChromeOptions) prepareBrowserOptions(cicd);
+        driver = new ChromeDriver(chromeOptions);
+        driver.get(getBrowserOptions().get("url"));
+//        driver.manage().window().maximize();
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        LoggerUtility.info("The browser was opened with success!");
 
     }
 
     @Override
     public void closeBrowser() {
+        driver.quit();
+        LoggerUtility.info("The browser was closed with success!");
 
     }
 
@@ -24,7 +36,12 @@ public class ChromeBrowserService extends BaseBrowserService implements BrowserS
 
         HashMap<String, String> testData = getBrowserOptions();
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments(testData.get("headless"));
+        if(cicd){
+            chromeOptions.addArguments("--headless");
+        }
+        if(!testData.get("headless").isEmpty()) {
+            chromeOptions.addArguments(testData.get("headless"));
+        }
         chromeOptions.addArguments(testData.get("gpu"));
         chromeOptions.addArguments(testData.get("infobars"));
         chromeOptions.addArguments(testData.get("sandbox"));
