@@ -20,12 +20,6 @@ public class ShareData {
 
         driver = new BrowserFactory().getBrowserDriver();
 
-//        driver = new ChromeDriver();
-//        driver.get("https://opensource-demo.orangehrmlive.com");
-//        driver.manage().window().maximize();
-//
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-//        LoggerUtility.info("The browser was opened with success!");
     }
     public void clear(){
         driver.quit();

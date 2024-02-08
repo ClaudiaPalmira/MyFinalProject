@@ -20,16 +20,6 @@ public class LoginOrangeHRMTest extends Hooks {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.fillLoginpageOrange(usernameOrangevalue,passwordOrangevalue);
 
-//        WebElement usernameOrange = driver.findElement(By.xpath("//input[@name='username']"));
-//        String usernameOrangevalue = "Admin";
-//        usernameOrange.sendKeys(usernameOrangevalue);
-//
-//        WebElement passwordOrange = driver.findElement(By.xpath("//input[@name='password']"));
-//        String passwordOrangevalue = "admin123";
-//        passwordOrange.sendKeys(passwordOrangevalue);
-
-//        WebElement submitOrange = driver.findElement(By.xpath("//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button' and @type='submit']"));
-//        submitOrange.click();
 
         //validam testul de login
 

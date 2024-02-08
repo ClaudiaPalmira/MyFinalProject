@@ -39,39 +39,6 @@ public class PIMOrangeHRMTest extends Hooks {
         PIMAddEmployeePage pimAddEmployeePage = new PIMAddEmployeePage(getDriver());
         pimAddEmployeePage.fillEmployeeDetails(pimOrangeHRMObject);
 
-////        WebElement pimOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='PIM']"));
-////        pimOrange.click();
-//
-//        PIMAddEmployeePage pimAddEmployeePage = new PIMAddEmployeePage(getDriver());
-//        String firstNameEmployeeValue = "Ivan";
-//        String middleNameEmployeeValue = "Iulian";
-//        String lastNameEmployeeValue = "Ionescu";
-//        String filepath ="src/test/resources/panda.jpg";
-//        pimAddEmployeePage.fillEmployeeDetails(firstNameEmployeeValue, middleNameEmployeeValue, lastNameEmployeeValue);
-
-//        WebElement addEmployee = driver.findElement(By.xpath("//a[@class='oxd-topbar-body-nav-tab-item' and text()='Add Employee']"));
-//        addEmployee.click();
-
-//        WebElement firstNameEmployee = driver.findElement(By.xpath("//input[@name='firstName']"));
-//        String firstNameEmployeeValue = "Ivan";
-//        firstNameEmployee.sendKeys(firstNameEmployeeValue);
-
-//        WebElement middleNameEmployee = driver.findElement(By.xpath("//input[@name='middleName']"));
-//        String middleNameEmployeeValue = "Iulian";
-//        middleNameEmployee.sendKeys(middleNameEmployeeValue);
-
-//        WebElement lastNameEmployee = driver.findElement(By.xpath("//input[@name='lastName']"));
-//        String lastNameEmployeeValue = "Ionescu";
-//        lastNameEmployee.sendKeys(lastNameEmployeeValue);
-
-//        WebElement uploadPicture = driver.findElement(By.xpath("//input[@class='oxd-file-input']"));
-//        File file = new File("src/test/resources/panda.jpg");
-//        uploadPicture.sendKeys(file.getAbsolutePath());
-//
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//
-//        WebElement saveButton = driver.findElement(By.xpath("//button[@type='submit']"));
-//        saveButton.click();
 
         //validam testul de adaugare angajat
 
@@ -84,18 +51,6 @@ public class PIMOrangeHRMTest extends Hooks {
         } else {
             System.out.println("Employee creation failed!");
         }
-
-//        List<WebElement> newEmployeeValidation = driver.findElements(By.cssSelector("div.oxd-input-group.oxd-input-field-bottom-space"));
-//
-////        Assert.assertTrue(newEmployeeValidation.get(0).getText().contains(firstNameEmployeeValue));
-////        Assert.assertTrue(newEmployeeValidation.get(1).getText().contains(middleNameEmployeeValue));
-////        Assert.assertTrue(newEmployeeValidation.get(2).getText().contains(lastNameEmployeeValue));
-
-//        List<WebElement> newEmployeeValidation = driver.findElements(By.cssSelector("div.oxd-input-group.oxd-input-field-bottom-space input.oxd-input"));
-//
-//        Assert.assertTrue(newEmployeeValidation.get(0).getAttribute("Ivan").contains(firstNameEmployeeValue));
-//        Assert.assertTrue(newEmployeeValidation.get(1).getAttribute("Iulian").contains(middleNameEmployeeValue));
-//        Assert.assertTrue(newEmployeeValidation.get(2).getAttribute("Ionescu").contains(lastNameEmployeeValue));
 
     }
 

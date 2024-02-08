@@ -45,25 +45,6 @@ public class BuzzOrangeHRMTest extends Hooks {
         else{
             System.out.println("FAIL! The posted content is not displayed!");
         }
-
     }
-    //      WebElement buzzOrange = driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='Buzz']"));
-//      buzzOrange.click();
 
-//         WebElement buzzFeed = driver.findElement(By.xpath("//div[@class='oxd-buzz-post oxd-buzz-post--active']"));
-//         am cautat eroare si nu ma lasa sa atribui text fiindca cautam dupa "div", astfel am cautat un alt approach de identificare a elementului
-
-
-//        BuzzNewsfeedPage buzzNewsfeedPage = new BuzzNewsfeedPage(getDriver());
-//        String buzzFeedValue = "Hello world!";
-//        buzzNewsfeedPage.fillBuzzFeed(buzzFeedValue);
-
-//        WebElement buzzFeed = driver.findElement(By.xpath("//textarea[@class='oxd-buzz-post-input']"));
-//        buzzFeed.click();
-//        String buzzFeedValue = "Hello world!";
-//        buzzFeed.sendKeys(buzzFeedValue);
-//        WebElement submitBuzz = driver.findElement(By.xpath("//button[@type='submit']"));
-//        submitBuzz.click();
-
-    //validam testul de buzzfeed
 }
